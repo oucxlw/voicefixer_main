@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1HYYUepIsl2aXsdET6P_AmNVXuWP1MCMf?usp=sharing) [![PyPI version](https://badge.fury.io/py/voicefixer.svg)](https://badge.fury.io/py/voicefixer)
+[![arXiv](https://img.shields.io/badge/arXiv-2109.13731-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2109.13731) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1HYYUepIsl2aXsdET6P_AmNVXuWP1MCMf?usp=sharing) [![PyPI version](https://badge.fury.io/py/voicefixer.svg)](https://badge.fury.io/py/voicefixer) [![githubio](https://img.shields.io/badge/GitHub.io-Audio_Samples-blue?logo=Github&style=flat-square)](https://haoheliu.github.io/demopage-voicefixer)
 
 # VoiceFixer
 
@@ -6,28 +6,41 @@ VoiceFixer is a framework for general speech restoration. We aim at the restorat
 
 [![46dPxJ.png](https://z3.ax1x.com/2021/09/26/46dPxJ.png)](https://imgtu.com/i/46dPxJ)
 
-## Paper
-Preprint on *arxiv*: https://arxiv.org/abs/2109.13731 
+- [VoiceFixer](#voicefixer)
+  * [Materials](#materials)
+  * [Usage](#usage)
+    + [Environment](#environment)
+    + [General Speech Restoration (GSR)](#general-speech-restoration--gsr-)
+      - [Train from scratch](#train-from-scratch)
+      - [Evaluation](#evaluation)
+    + [Single Task Speech Restoration (SSR)](#single-task-speech-restoration--ssr-)
+      - [Train from scratch](#train-from-scratch-1)
+      - [Evaluation](#evaluation-1)
+  * [Project Structure](#project-structure)
+  * [Citation](#citation)
+  
+## Materials
 
-## Demo
+- *Arxiv* preprint: https://arxiv.org/abs/2109.13731 
 - [Demo page](https://haoheliu.github.io/demopage-voicefixer/) contains comparison between single task speech restoration, general speech restoration, and voicefixer.
-- We wrote a [pip package](https://pypi.org/project/voicefixer/0.0.6/) for voicefixer.
+- We wrote a [pip package](https://pypi.org/project/voicefixer) for voicefixer.
 - You can try voicefixer using your own voice on [colab](https://colab.research.google.com/drive/1HYYUepIsl2aXsdET6P_AmNVXuWP1MCMf?usp=sharing)!
+- Integrated to [Huggingface Spaces](https://huggingface.co/spaces) with [Gradio](https://github.com/gradio-app/gradio). See [Gradio Web Demo](https://huggingface.co/spaces/akhaliq/VoiceFixer)
 
 ## Usage
 
-## Environment
+### Environment
 ```shell script
 # Download dataset and prepare running environment
 source init.sh 
 ```
 
-## General Speech Restoration (GSR)
+### General Speech Restoration (GSR)
 
 **Here we take *VF_UNet*(voicefixer with unet as analysis module) as an example.**
 Other GSR model have the similar folder structure, training entry and evaluation logic.
 
-### Train from scratch 
+#### Train from scratch 
 
 Change directory and run training entry.
 
@@ -68,7 +81,7 @@ After that, you will automatically get a log directory that look like this
                 └── hparams.yaml
 ``` 
 
-### Evaluation
+#### Evaluation
 
 Automatic evaluation and generate .csv file for the GSR evaluation results.
 
@@ -124,7 +137,7 @@ python3 handler.py  -c <str, path-to-checkpoint> \
 **Here we take enhancement *UNet*(Enh-UNet) as an example.**
 Other SSR model have the similar folder structure, training entry and evaluation logic.
 
-### Train from scratch
+#### Train from scratch
 
 Change directory and run training entry
 
@@ -158,7 +171,7 @@ After that, you will automatically get a log directory that look like this
                 └── hparams.yaml
 ```
 
-### Evaluation
+#### Evaluation
 
 Automatic evaluation and generate .csv file for the GSR evaluation results.
 
@@ -208,7 +221,7 @@ python3 handler.py  -c <str, path-to-checkpoint> \
                     -d <str, description of this evaluation> \ 
 ```
 
-# Project Structure
+## Project Structure
 
 ``` python
 .
@@ -269,17 +282,18 @@ python3 handler.py  -c <str, path-to-checkpoint> \
 └── callbacks
 ```
 
-# Citation
+## Citation
 
->   @misc{liu2021voicefixer,   
->       title={VoiceFixer: Toward General Speech Restoration With Neural Vocoder},   
->       author={Haohe Liu and Qiuqiang Kong and Qiao Tian and Yan Zhao and DeLiang Wang and Chuanzeng Huang and Yuxuan Wang},  
->       year={2021},  
->       eprint={2109.13731},  
->       archivePrefix={arXiv},  
->       primaryClass={cs.SD}  
->   }
-
+```bib
+ @misc{liu2021voicefixer,   
+     title={VoiceFixer: Toward General Speech Restoration With Neural Vocoder},   
+     author={Haohe Liu and Qiuqiang Kong and Qiao Tian and Yan Zhao and DeLiang Wang and Chuanzeng Huang and Yuxuan Wang},  
+     year={2021},  
+     eprint={2109.13731},  
+     archivePrefix={arXiv},  
+     primaryClass={cs.SD}  
+ }
+```
 
 ![real-life-example](resources/pics/real.png)
 ![real-life-example](resources/pics/gsr-demo.png)
