@@ -1,12 +1,10 @@
+GitPython
 coloredlogs
 numpy
-loguru
-boto3
 SoundFile
 scipy
-norbert
-asteroid>=0.5.0
-torch
+voicefixer
+scikit-image
 
 librosa
 torchlibrosa==0.0.7
@@ -14,7 +12,6 @@ matplotlib
 setuptools
 setuptools-scm
 tensorboardX
-torchvision
 pillow
 julius
 diffq
@@ -22,5 +19,4 @@ diffq
 soundfile
 typing
 pynvml
-GitPython
 progressbar

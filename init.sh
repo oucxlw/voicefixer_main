@@ -1,7 +1,12 @@
-pip3 install --upgrade virtualenv==16.7.9 # this version virtualenv support the --no-site-packages option
-virtualenv --no-site-packages voicefixer # create new environment
-source voicefixer/bin/activate # activate environment
+virtualenv env_voicefixer # create new environment
+source env_voicefixer/bin/activate # activate environment
+
 pip3 install -r requirements.txt # install requirements
+pip3 install torch==1.8.1 torchaudio==0.8.1 pytorch_lightning==1.5.0
+pip3 install git+https://github.com/aliutkus/speechmetrics#egg=speechmetrics[cpu]
+pip3 install GitPython
+sudo apt-get install libsox-fmt-all libsox-dev sox
+python3 -m pip install git+https://github.com/facebookresearch/WavAugment.git
 
 if ! [ -x "$(command -v unzip)" ]; then
   echo 'Error: unzip is not installed.' >&2
@@ -26,7 +31,7 @@ if [ ! -d "datasets/se/vd_noise" ]; then
 fi
 python3 datasets/datasetParser/vctk_demand.py
 
-if [ ! -d "datasets/se/Testsets" ]; then
+if [ ! -d "datasets/se/TestSets" ]; then
   echo "Preparing GSR and SSR test sets"
   if [ ! -f "datasets/se/GSR_and_SSR_testsets.zip" ]; then
     wget https://zenodo.org/record/5528144/files/GSR_and_SSR_testsets.zip?download=1 -O datasets/se/GSR_and_SSR_testsets.zip
